@@ -6,11 +6,6 @@ if (typeof window.applicationCache !== "undefined") {
     window.applicationCache.swapCache();
     setTimeout(function() {location.reload(true)}, 1000);
   }, false);
-
-  window.applicationCache.addEventListener('downloading', function() {
-    document.body.innerHTML="<center><br><br><h1>Fetching latest version...<br><br>Page will reload in a moment.</h1><br></center>";
-    document.body.style.setProperty("background", "#987");
-  }, false);
 }
 
 
