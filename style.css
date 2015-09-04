@@ -76,7 +76,7 @@ html {
   animation:         ready-pulse 0.5s ease-in-out 0s infinite alternate;
 }
 
-@-webkit-keyframes ready-pulse { from { background-color: #987; } to { background-color: #CBA; } }
-@-moz-keyframes    ready-pulse { from { background-color: #987; } to { background-color: #CBA; } }
-@-o-keyframes      ready-pulse { from { background-color: #987; } to { background-color: #CBA; } }
-@keyframes         ready-pulse { from { background-color: #987; } to { background-color: #CBA; } }
+@-webkit-keyframes ready-pulse { from { background-color: #987; } to { background-color: #A98; } }
+@-moz-keyframes    ready-pulse { from { background-color: #987; } to { background-color: #A98; } }
+@-o-keyframes      ready-pulse { from { background-color: #987; } to { background-color: #A98; } }
+@keyframes         ready-pulse { from { background-color: #987; } to { background-color: #A98; } }
