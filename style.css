@@ -68,3 +68,15 @@ html {
 #sec-first {
   font-family: digital-7;
 }
+
+#main.ready-pulse {
+  -webkit-animation: ready-pulse 0.5s ease-in-out 0s infinite alternate;
+  -moz-animation:    ready-pulse 0.5s ease-in-out 0s infinite alternate;
+  -o-animation:      ready-pulse 0.5s ease-in-out 0s infinite alternate;
+  animation:         ready-pulse 0.5s ease-in-out 0s infinite alternate;
+}
+
+@-webkit-keyframes ready-pulse { from { background-color: #987; } to { background-color: #CBA; } }
+@-moz-keyframes    ready-pulse { from { background-color: #987; } to { background-color: #CBA; } }
+@-o-keyframes      ready-pulse { from { background-color: #987; } to { background-color: #CBA; } }
+@keyframes         ready-pulse { from { background-color: #987; } to { background-color: #CBA; } }

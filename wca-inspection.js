@@ -44,6 +44,7 @@ function set() {
   setSec(0);
   $("#milli").html("000");
   $("#main").css("background-color", "#987");
+  $("#main").addClass("ready-pulse");
 }
 
 function startTimer() {
@@ -52,6 +53,7 @@ function startTimer() {
   animFrame();
   stopColor = "green";
   $("#main").css("background-color", "green");
+  $("#main").removeClass("ready-pulse");
 }
 
 function stopTimer() {
