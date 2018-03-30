@@ -1,15 +1,3 @@
-
-// These two listeners will reload the page if the manifest has changed.
-// This code should be used on any page that should refresh itself immediately if it is stale.
-if (typeof window.applicationCache !== "undefined") {
-  window.applicationCache.addEventListener('updateready', function() {
-    window.applicationCache.swapCache();
-    setTimeout(function() {location.reload(true)}, 1000);
-  }, false);
-}
-
-
-
 document.ontouchmove = function (event) {
     event.preventDefault();
 };
@@ -120,3 +108,21 @@ $(document.body).ready(function() {
   $(document.body).on("touchstart", touchHandler.bind(this, "down"));
   $(document.body).on("touchend",   touchHandler.bind(this, "up"));
 })
+
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistration().then(function(r) {
+    console.log(r);
+    if (!r) {
+      navigator.serviceWorker.register("./service-worker.js").then(function(registration) {
+        console.log("Registered service worker with scope: ", registration.scope);
+      }, function(err) {
+        console.error(err);
+      });
+    } else {
+      console.log("Service worker already registered.");
+    }
+  }, function(err) {
+    console.error("Could not enable offline support.");
+  });
+}
