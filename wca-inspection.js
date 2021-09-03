@@ -37,7 +37,7 @@ function set() {
 
 function startTimer() {
   running = true;
-  lastSecond = startTime = Date.now();
+  lastSecond = startTime = Math.floor(performance.now());
   animFrame();
   stopColor = "green";
   $("#main").css("background-color", "green");
@@ -51,7 +51,7 @@ function stopTimer() {
 
 function animFrame() {
   if (running) {
-    var now = Date.now();
+    var now = Math.floor(performance.now());
     var currentSecond = Math.floor((now - startTime) / 1000);
     setSec(currentSecond);
     $("#milli").html(("000" + ((now - startTime) % 1000)).substr(-3));
