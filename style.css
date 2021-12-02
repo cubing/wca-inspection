@@ -70,6 +70,7 @@ html {
 /* Using the regular (non-monospace) font for everything doesn't work for 11. */
 #sec-first {
   font-family: digital-7;
+  line-height: 1em;
 }
 
 #main.ready-pulse {
