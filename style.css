@@ -45,6 +45,7 @@ html {
   font-size: 60vh;
   line-height: 1em;
   display: grid;
+  justify-content: center;
   gap: 0;
   grid-template-columns: auto auto;
 }
