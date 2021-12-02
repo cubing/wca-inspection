@@ -17,7 +17,7 @@ html, body, #main {
 * {
   padding: 0;
   margin: 0;
-  font-family: digital-7-mono, Helvetica, Tahoma, sans-serif;
+  font-family: digital-7-mono, sans-serif;
   color: black;
 
   -webkit-touch-callout: none;
@@ -33,46 +33,35 @@ html {
 }
 
 #main {
-  text-align: center;
-
-  display: -webkit-box;
-  -webkit-box-align: center;
-  -webkit-box-pack: center;
-
-  display: -moz-box;
-  -moz-box-align: center;
-  -moz-box-pack: center;
-
-  display: -ms-flexbox;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-
-  display: box;
-  box-align: center;
-  box-pack: center;
+  display: grid;
+  place-content: center;
+  grid-template-rows: 50% 25%;
+  gap: 15%;
 
   background-color: #987;
 }
 
 #main #sec {
-  height: 50%;
-  margin-top: 5%;
-  font-size: 70vh;
-}
-
-#main #milli {
-  font-size: 20vh;
-  height: 25%;
-  opacity: 0.25;
-  display: inline-block;
+  font-size: 60vh;
+  line-height: 1em;
+  display: grid;
+  gap: 0;
+  grid-template-columns: auto auto;
 }
 
 /* Using the regular (non-monospace) font for everything doesn't work for 11. */
 #sec-first {
   font-family: digital-7;
-  line-height: 1em;
 }
 
+#main #milli {
+  text-align: center;
+  font-size: 20vh;
+  opacity: 0.25;
+  display: grid;
+
+  height: 1em;
+}
 #main.ready-pulse {
   -webkit-animation: ready-pulse 1s ease-in-out 0s infinite alternate;
   -moz-animation:    ready-pulse 1s ease-in-out 0s infinite alternate;
