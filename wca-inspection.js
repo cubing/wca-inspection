@@ -30,7 +30,7 @@ function setSec(value) {
 
 function set() {
   setSec(0);
-  $("#milli").html("000");
+  $("#milli").html("00");
   $("#main").css("background-color", "#987");
   $("#main").addClass("ready-pulse");
 }
@@ -54,7 +54,9 @@ function animFrame() {
     var now = Math.floor(performance.now());
     var currentSecond = Math.floor((now - startTime) / 1000);
     setSec(currentSecond);
-    $("#milli").html(("000" + ((now - startTime) % 1000)).substr(-3));
+    $("#milli").html(
+      ("00" + (Math.floor((now - startTime) / 10) % 1000)).substr(-2)
+    );
 
     for (i in fading) {
       var time = fading[i].time;
@@ -97,7 +99,7 @@ function keyboardHandler(direction, ev) {
 $(document.body).ready(function () {
   // If we do this now, we can avoid flickering later.
   setSec("-");
-  $("#milli").html("---");
+  $("#milli").html("--");
 
   FastClick.attach(document.body);
   $(document.body).on("keypress", keyboardHandler.bind(this, "down"));
