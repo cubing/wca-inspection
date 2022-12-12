@@ -1,9 +1,9 @@
 all: deploy open
 
 SFTP_PATH      = "cubing.net:~/cubing.net/inspection/"
-URL2            = "http://cubing.net/inspection"
+URL            = "http://cubing.net/inspection"
 
-SFTP_PATH      = "cubing.net:~/inspection.cubing.net/"
+SFTP_PATH_2      = "cubing.net:~/inspection.cubing.net/"
 URL2            = "http://inspection.cubing.net/"
 
 SFTP_TEST_PATH = "cubing.net:~/cubing.net/inspection-test/"
