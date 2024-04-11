@@ -22,6 +22,21 @@ var fading = [
   { time: 17, color: "#800" },
 ];
 
+const recentAnimations = new Set();
+function startAnimation(animation, ms) {
+  stopRecentAnimations();
+  recentAnimations.add(animation);
+  setTimeout(() => {
+    recentAnimations.delete(animation)
+  }, ms + 100);
+}
+function stopRecentAnimations() {
+  for (const animation of recentAnimations) {
+    animation.cancel();
+  }
+  recentAnimations.clear();
+}
+
 function setSec(value) {
   var strValue = "" + value;
   document.body.querySelector("#sec-first").textContent = (strValue.charAt(0));
@@ -33,6 +48,7 @@ function set() {
   document.body.querySelector("#milli").textContent = ("00");
   document.body.querySelector("#main").style.backgroundColor =  "#987";
   document.body.querySelector("#main").classList.add("ready-pulse");
+  document.body.querySelector("#main").style.backgroundColor = null;
 }
 
 function startTimer() {
@@ -45,6 +61,8 @@ function startTimer() {
 }
 
 function stopTimer() {
+  console.log("g");
+  startAnimation(document.body.querySelector("#main").animate([{opacity: 0, backgroundColor: stopColor}, {opacity: 1}], {duration: 250}), 250);
   // document.body.querySelector("#main").stop().fadeOut(0).css("background-color", stopColor).fadeIn(250);
   running = false;
 }
@@ -67,10 +85,14 @@ function animFrame() {
       }
 
       if (justPassed(time - 1)) {
+        startAnimation(document.body.querySelector("#main").animate([{backgroundColor: color}], {duration: 1000, fill: "forwards", overwrite: true}), 1000);
         // document.body.querySelector("#main").animate({ "background-color": color }, 1000);
       }
       if (justPassed(time)) {
+        console.log({stopColor, color})
         stopColor = color;
+        document.body.querySelector("#main").style.backgroundColor = stopColor;
+        startAnimation(document.body.querySelector("#main").animate([{opacity: 0}, {opacity: 1}], {duration: 250, fill: "forwards"}), 250);
         // document.body.querySelector("#main").fadeOut(0).fadeIn(250);
       }
     }
