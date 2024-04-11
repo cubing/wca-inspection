@@ -61,7 +61,6 @@ function startTimer() {
 }
 
 function stopTimer() {
-  console.log("g");
   startAnimation(document.body.querySelector("#main").animate([{opacity: 0, backgroundColor: stopColor}, {opacity: 1}], {duration: 250}), 250);
   // document.body.querySelector("#main").stop().fadeOut(0).css("background-color", stopColor).fadeIn(250);
   running = false;
