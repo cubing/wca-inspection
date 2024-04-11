@@ -28,9 +28,7 @@ function precache() {
       "./wca-inspection.js",
       "./lib/digital-7-mono.ttf",
       "./lib/digital-7.ttf",
-      "./lib/fastclick.js",
-      "./lib/jquery-1.11.0.min.js",
-      "./lib/jquery-ui.js"
+      "./lib/fastclick.js"
     ]);
   });
 }

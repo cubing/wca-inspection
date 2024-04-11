@@ -24,15 +24,15 @@ var fading = [
 
 function setSec(value) {
   var strValue = "" + value;
-  $("#sec-first").html(strValue.charAt(0));
-  $("#sec-rest").html(strValue.substr(1));
+  document.body.querySelector("#sec-first").textContent = (strValue.charAt(0));
+  document.body.querySelector("#sec-rest").textContent = (strValue.substr(1));
 }
 
 function set() {
   setSec(0);
-  $("#milli").html("00");
-  $("#main").css("background-color", "#987");
-  $("#main").addClass("ready-pulse");
+  document.body.querySelector("#milli").textContent = ("00");
+  document.body.querySelector("#main").style.backgroundColor =  "#987";
+  document.body.querySelector("#main").classList.add("ready-pulse");
 }
 
 function startTimer() {
@@ -40,12 +40,12 @@ function startTimer() {
   lastSecond = startTime = Math.floor(performance.now());
   animFrame();
   stopColor = "green";
-  $("#main").css("background-color", "green");
-  $("#main").removeClass("ready-pulse");
+  document.body.querySelector("#main").style.backgroundColor = ("green");
+  document.body.querySelector("#main").classList.remove("ready-pulse");
 }
 
 function stopTimer() {
-  $("#main").stop().fadeOut(0).css("background-color", stopColor).fadeIn(250);
+  // document.body.querySelector("#main").stop().fadeOut(0).css("background-color", stopColor).fadeIn(250);
   running = false;
 }
 
@@ -54,11 +54,11 @@ function animFrame() {
     var now = Math.floor(performance.now());
     var currentSecond = Math.floor((now - startTime) / 1000);
     setSec(currentSecond);
-    $("#milli").html(
+    document.body.querySelector("#milli").textContent = (
       ("00" + (Math.floor((now - startTime) / 10) % 1000)).substr(-2)
     );
 
-    for (i in fading) {
+    for (const i in fading) {
       var time = fading[i].time;
       var color = fading[i].color;
 
@@ -67,11 +67,11 @@ function animFrame() {
       }
 
       if (justPassed(time - 1)) {
-        $("#main").animate({ "background-color": color }, 1000);
+        // document.body.querySelector("#main").animate({ "background-color": color }, 1000);
       }
       if (justPassed(time)) {
         stopColor = color;
-        $("#main").fadeOut(0).fadeIn(250);
+        // document.body.querySelector("#main").fadeOut(0).fadeIn(250);
       }
     }
 
@@ -96,17 +96,15 @@ function keyboardHandler(direction, ev) {
   }
 }
 
-$(document.body).ready(function () {
-  // If we do this now, we can avoid flickering later.
-  setSec("-");
-  $("#milli").html("--");
+// If we do this now, we can avoid flickering later.
+setSec("-");
+document.body.querySelector("#milli").textContent = ("--");
 
-  FastClick.attach(document.body);
-  $(document.body).on("keypress", keyboardHandler.bind(this, "down"));
-  $(document.body).on("keyup", keyboardHandler.bind(this, "up"));
-  $(document.body).on("touchstart", touchHandler.bind(this, "down"));
-  $(document.body).on("touchend", touchHandler.bind(this, "up"));
-});
+FastClick.attach(document.body);
+document.body.addEventListener("keypress", keyboardHandler.bind(this, "down"));
+document.body.addEventListener("keyup", keyboardHandler.bind(this, "up"));
+document.body.addEventListener("touchstart", touchHandler.bind(this, "down"));
+document.body.addEventListener("touchend", touchHandler.bind(this, "up"));
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.getRegistration().then(
