@@ -145,7 +145,6 @@ function keyboardHandler(direction, ev) {
 setSec("-");
 document.body.querySelector("#milli").textContent = "--";
 
-FastClick.attach(document.body);
 document.body.addEventListener("keypress", keyboardHandler.bind(this, "down"));
 document.body.addEventListener("keyup", keyboardHandler.bind(this, "up"));
 document.body.addEventListener("touchstart", touchHandler.bind(this, "down"));
