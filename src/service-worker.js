@@ -28,8 +28,8 @@ function precache() {
         "./",
         "./style.css",
         "./wca-inspection.js",
-        "./lib/digital-7-mono.ttf",
-        "./lib/digital-7.ttf",
+        "./lib/digital-7-mono.timer.woff2",
+        "./lib/digital-7.timer.woff2",
         "./lib/fastclick.js",
       ]),
     );
