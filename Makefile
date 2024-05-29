@@ -1,6 +1,6 @@
 .PHONY: dev
 dev:
-	npx serve src
+	bun x serve src
 
 all: deploy open
 
@@ -10,11 +10,11 @@ deploy:
 
 .PHONY: lint
 lint:
-	npx @biomejs/biome check ./src
+	bun x @biomejs/biome check ./src
 
 .PHONY: format
 format:
-	npx @biomejs/biome format --write ./src
+	bun x @biomejs/biome format --write ./src
 
 .PHONY: open
 open:
