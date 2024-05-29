@@ -16,7 +16,7 @@ const states = {
 };
 
 const fading = [
-  { time: 8, color: "#ff0" },
+  { time: 8, color: "rgb(219, 182, 6)" },
   { time: 12, color: "#f80" },
   { time: 15, color: "#f00" },
   { time: 17, color: "#800" },
