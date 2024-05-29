@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.3",
+    "@cubing/deploy": "^0.1.4",
+    "serve": "^14.2.3"
+  },
+  "@cubing/deploy": {
+    "https://inspection.cubing.net/": {
+      "fromLocalDir": "./src/"
+    }
+  }
+}

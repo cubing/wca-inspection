@@ -1,45 +1,20 @@
+.PHONY: dev
+dev:
+	npx serve src
+
 all: deploy open
-
-SFTP_PATH      = "cubing.net:~/cubing.net/inspection/"
-URL            = "http://cubing.net/inspection"
-
-SFTP_PATH_2      = "cubing.net:~/inspection.cubing.net/"
-URL2            = "http://inspection.cubing.net/"
-
-SFTP_TEST_PATH = "cubing.net:~/cubing.net/inspection-test/"
-TEST_URL       = "http://cubing.net/inspection-test/"
-
 
 .PHONY: deploy
 deploy:
-	rsync -avz \
-		--exclude .DS_Store \
-		--exclude .git \
-		--exclude .gitignore \
-		--exclude .gitmodules \
-		./ \
-		${SFTP_PATH}
-	echo "\nDone deploying. Go to ${URL}\n"
-	rsync -avz \
-		--exclude .DS_Store \
-		--exclude .git \
-		--exclude .gitignore \
-		--exclude .gitmodules \
-		./ \
-		${SFTP_PATH_2}
-	echo "\nDone deploying. Go to ${URL2}\n"
+	bun x @cubing/deploy
 
-.PHONY: deploy-test
-deploy-test:
-	rsync -avz \
-		--exclude .DS_Store \
-		--exclude .git \
-		--exclude .gitignore \
-		--exclude .gitmodules \
-		./ \
-		${SFTP_TEST_PATH}
-	echo "\nDone deploying. Go to ${TEST_URL}\n"
+.PHONY: lint
+lint:
+	npx @biomejs/biome check ./src
 
+.PHONY: format
+format:
+	npx @biomejs/biome format --write ./src
 
 .PHONY: open
 open:
