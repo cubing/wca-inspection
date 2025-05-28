@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
-    "@cubing/deploy": "^0.1.4",
+    "@cubing/deploy": "v0.2.2",
     "serve": "^14.2.3"
   },
   "@cubing/deploy": {
